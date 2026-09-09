@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <script src="https://unpkg.com/vue@3"></script>
-    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
-    <link rel="stylesheet" href="https://unpkg.com/element-plus/theme-chalk/dark/css-vars.css">
-    <script src="https://unpkg.com/element-plus"></script>
-    <title>弥生古墳時代の日本史</title>
-  </head>
-  <body>
-    <div id="app">
-      <el-button>{{message}}</el-button>
-    </div>
-    <script>
-      const app = Vue.createApp({
-        data() {
-          return {
-            message: "弥生時代Loading中",
-          };
-        }
-      });
-      app.use(ElementPlus);
-      app.mount("#app");
-    </script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <script src="https://unpkg.com/vue@3"></script>
+        <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+        <link rel="stylesheet" href="https://unpkg.com/element-plus/theme-chalk/dark/css-vars.css">
+        <script src="https://unpkg.com/element-plus"></script>
+        <title>弥生古墳時代の日本史</title>
+    </head>
+    <body>
+        <div id="app">
+            <el-container>
+                <el-header>
+          
+                </el-header>
+                <el-aside>
+
+                </el-aside>
+                <el-main>
+                    
+                </el-main>
+            </el-container>
+            <el-button>{{message}}</el-button>
+        </div>
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        message: "弥生時代Loading中",
+                    };
+                }
+            });
+            app.use(ElementPlus);
+            app.mount("#app");
+        </script>
+    </body>
 </html>
