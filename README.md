@@ -1,0 +1,1 @@
+# dinshin0129.github.io
