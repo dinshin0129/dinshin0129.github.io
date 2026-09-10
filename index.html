@@ -10,9 +10,9 @@
         <title>弥生古墳時代の日本史</title>
     </head>
     <body>
-        <div id="app">
+        <div id="app" class="yayoi">
             <el-container>
-                <el-header class="layout-header">
+                <el-header class="yayoi-header">
                     <h1>{{title}}</h1>
                 </el-header>
                 <el-container>
@@ -52,11 +52,12 @@
             </el-container>
         </div>
         <style type="text/css">
-            #app {
+            .yayoi {
                 overflow: hidden;
             }
-            .layout-header {
+            .yayoi-header {
                 height: "150px";
+                flex-shrink: 0;
             }
         </style>
         <script>
