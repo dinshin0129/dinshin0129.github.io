@@ -38,7 +38,7 @@
                                 <el-anchor-link
                                     v-for="(timeslot, index) in timeslots"
                                     :key="index"
-                                    :href="#timeslot.href">
+                                    :href="`#${timeslot.href}`">
                                     {{timeslot.href}}
                                 </el-anchor-link>
                     </el-main>
