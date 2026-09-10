@@ -19,20 +19,28 @@
                     <el-aside>
                         <el-timeline>
                             <el-timeline-item
-                                v-for="(activity, index) in activities"
+                                v-for="(timeline, index) in timelines"
                                 :key="index"
-                                :type="activity.type"
-                                :timestamp="activity.timestamp"
-                                :placement="activity.placement"
+                                :type="timeline.type"
+                                :timestamp="timeline.timestamp"
+                                :placement="timeline.placement"
                             >
                             <el-card>
-                                <h4>{{activity.title}}</h4>
-                                <p>{{activity.content}}</p>
+                                <h4>{{timeline.title}}</h4>
+                                <p>{{timeline.content}}</p>
                             </el-card>
                         </el-timeline-item>
                         </el-timeline>
                     </el-aside>
                     <el-main>
+                        <el-affix :offset="60">
+                            <el-anchor :offset="70" direction="horizontal">
+                                <el-anchor-link
+                                    v-for="(timeslot, index) in timeslots"
+                                    :key="index"
+                                    :href="#timeslot.href">
+                                    {{timeslot.href}}
+                                </el-anchor-link>
                     </el-main>
                 </el-container>
             </el-container>
@@ -41,8 +49,8 @@
             const app = Vue.createApp({
                 data() {
                     return {
-                        message: "弥生时代Loading中",
-                        activities: [
+                        title: "弥生时代Loading中",
+                        timelines: [
                             {
                                 title: '弥生时代早期',
                                 content:'前750~前500年',
@@ -99,7 +107,18 @@
                                 type: 'info',
                                 placement:'top',
                             }
-                        ]
+                        ],
+                        timeslots:[
+                            {
+                                href:'弥生时代早期',
+                            },
+                            {
+                                href:'弥生时代前期',
+                            },
+                            {
+                                href:'弥生时代中期',
+                            },
+                        ],
                     };
                 }
             });
