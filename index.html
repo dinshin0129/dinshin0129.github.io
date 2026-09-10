@@ -13,7 +13,11 @@
         <div id="app" class="yayoi">
             <el-container>
                 <el-header class="yayoi-header">
-                    <h1>{{title}}</h1>
+                    <el-menu>
+                        <el-menu-item index="0">
+                            <h1>{{title}}</h1>
+                        </el-menu-item>
+                    </el-menu>
                 </el-header>
                 <el-container>
                     <el-aside class="yayoi-aside">
@@ -275,6 +279,8 @@
                         timelines.value[index].type = 'primary';
                         activeTimeslot.value = href;
                     }
+
+                    const activeMenu = ref('1');
 
                     return {
                         title,
