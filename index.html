@@ -13,37 +13,40 @@
         <div id="app">
             <el-container>
                 <el-header height="150px">
-                    <el-text class="mx-1" size="large">{{title}}</el-text>
+                    <h1>{{title}}</h1>
                 </el-header>
                 <el-container>
                     <el-aside width="400px">
-                        <el-timeline>
-                            <el-timeline-item
-                                v-for="(timeline, index) in timelines"
-                                :key="index"
-                                :type="timeline.type"
-                                :timestamp="timeline.timestamp"
-                                :placement="timeline.placement"
-                            >
-                            <el-card>
-                                <h2>{{timeline.title}}</h4>
-                                <p>{{timeline.content}}</p>
-                            </el-card>
-                        </el-timeline-item>
-                        </el-timeline>
+                        <el-scrollbar>
+                            <el-timeline>
+                                <el-timeline-item
+                                    v-for="(timeline, index) in timelines"
+                                    :key="index"
+                                    :type="timeline.type"
+                                    :timestamp="timeline.timestamp"
+                                    :placement="timeline.placement"
+                                >
+                                <el-card shadow="hover">
+                                    <h2>{{timeline.title}}</h2>
+                                    <p>{{timeline.content}}</p>
+                                </el-card>
+                            </el-timeline-item>
+                            </el-timeline>
+                        </el-scrollbar>
                     </el-aside>
                     <el-main>
-                        <el-affix :offset="60">
-                            <el-anchor :offset="70" direction="horizontal">
-                                <el-anchor-link
-                                    v-for="(timeslot, index) in timeslots"
-                                    :key="index"
-                                    :href="timeslot.href">
-                                    {{timeslot.content}}
-                                </el-anchor-link>
-                            </el-anchor>
-                        </el-affix>
-                        
+                        <el-scrollbar>
+                            <el-affix :offset="60">
+                                <el-anchor :offset="70" direction="horizontal">
+                                    <el-anchor-link
+                                        v-for="(timeslot, index) in timeslots"
+                                        :key="index"
+                                        :href="timeslot.href">
+                                        <p>{{timeslot.content}}</p>
+                                    </el-anchor-link>
+                                </el-anchor>
+                            </el-affix>
+                        </el-scrollbar>
                     </el-main>
                 </el-container>
             </el-container>
@@ -113,19 +116,19 @@
                         ],
                         timeslots:[
                             {
-                                href: '#yayoi_initial',
+                                href: '#yayoiinitial',
                                 content: '弥生时代早期'
                             },
                             {
-                                href: '#yayoi_early',
+                                href: '#yayoiearly',
                                 content: '弥生时代前期',
                             },
                             {
-                                href: '#yayoi_middle',
+                                href: '#yayoimiddle',
                                 content: '弥生时代中期',
                             },
                             {
-                                href: '#yayoi_late',
+                                href: '#yayoilate',
                                 content: '弥生时代后期',
                             },
                         ],
