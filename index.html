@@ -12,11 +12,13 @@
     <body>
         <div id="app">
             <el-container>
-                <el-header>
-                    <el-text class="mx-1" size="large">{{title}}</el-text>
-                </el-header>
+                <el-affix>
+                    <el-header height="150px">
+                        <el-text class="mx-1" size="large">{{title}}</el-text>
+                    </el-header>
+                </el-affix>
                 <el-container>
-                    <el-aside>
+                    <el-aside width="400px">
                         <el-timeline>
                             <el-timeline-item
                                 v-for="(timeline, index) in timelines"
