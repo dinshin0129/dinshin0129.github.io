@@ -22,9 +22,10 @@
                                 <el-timeline-item
                                     v-for="(timeline, index) in timelines"
                                     :key="index"
-                                    :type="timeline.type"
                                     :timestamp="timeline.timestamp"
+                                    :center="true"
                                     :placement="timeline.placement"
+                                    :type="timeline.type"
                                 >
                                 <el-card shadow="hover" @click="handleCard(index, timeline.href)">
                                     <h2>{{timeline.title}}</h2>
@@ -268,7 +269,6 @@
                     });
                     
                     function handleCard(index, href) {
-                        console.log(index);
                         for(timeline of timelines.value) {
                             timeline.type = 'info';
                         }
