@@ -13,7 +13,7 @@
         <div id="app">
             <el-container>
                 <el-header>
-                    <el-button>{{message}}</el-button>
+                    <el-button>{{title}}</el-button>
                 </el-header>
                 <el-container>
                     <el-aside>
@@ -26,7 +26,7 @@
                                 :placement="timeline.placement"
                             >
                             <el-card>
-                                <h4>{{timeline.title}}</h4>
+                                <h2>{{timeline.title}}</h4>
                                 <p>{{timeline.content}}</p>
                             </el-card>
                         </el-timeline-item>
@@ -38,9 +38,12 @@
                                 <el-anchor-link
                                     v-for="(timeslot, index) in timeslots"
                                     :key="index"
-                                    :href="`#${timeslot.href}`">
-                                    {{timeslot.href}}
+                                    :href="timeslot.href">
+                                    {{timeslot.content}}
                                 </el-anchor-link>
+                            </el-anchor>
+                        </el-affix>
+                        <a href="#yayoi_initial"></a>
                     </el-main>
                 </el-container>
             </el-container>
@@ -110,13 +113,20 @@
                         ],
                         timeslots:[
                             {
-                                href:'弥生时代早期',
+                                href: '#yayoi_initial',
+                                content: '弥生时代早期'
                             },
                             {
-                                href:'弥生时代前期',
+                                href: '#yayoi_early',
+                                content: '弥生时代前期',
                             },
                             {
-                                href:'弥生时代中期',
+                                href: '#yayoi_middle',
+                                content: '弥生时代中期',
+                            },
+                            {
+                                href: '#yayoi_late',
+                                content: '弥生时代后期',
                             },
                         ],
                     };
