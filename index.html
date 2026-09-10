@@ -23,8 +23,12 @@
                                 :key="index"
                                 :type="activity.type"
                                 :timestamp="activity.timestamp"
+                                :placement="activity.placement"
                             >
-                            {{activity.content}}
+                            <el-card>
+                                <h4>{{activity.title}}</h4>
+                                <p>{{activity.content}}</p>
+                            </el-card>
                         </el-timeline-item>
                         </el-timeline>
                     </el-aside>
@@ -37,47 +41,63 @@
             const app = Vue.createApp({
                 data() {
                     return {
-                        message: "弥生時代Loading中",
+                        message: "弥生时代Loading中",
                         activities: [
                             {
-                                content: '弥生時代早期',
-                                timestamp: '前700~前550年',
+                                title: '弥生时代早期',
+                                content:'前750~前500年',
+                                timestamp: 'BC750~BC500',
                                 type: 'primary',
+                                placement:'top',
                             },
                             {
-                                content: '弥生時代前期',
-                                timestamp: '前550~前250年',
+                                title:'弥生时代前期',
+                                content: '前500~前250年',
+                                timestamp: 'BC500~BC250',
                                 type: 'info',
+                                placement:'top',
                             },
                             {
-                                content: '弥生時代中期',
-                                timestamp: '前250~50年',
+                                title:'弥生时代中期',
+                                content: '前250~1年',
+                                timestamp: 'BC250~AD1',
                                 type: 'info',
+                                placement:'top',
                             },
                             {
-                                content: '弥生時代後期',
-                                timestamp: '50~200年',
+                                title:'弥生时代后期',
+                                content: '1~200年',
+                                timestamp: 'AD1~AD200',
                                 type: 'info',
+                                placement:'top',
                             },
                             {
-                                content: '古墳時代早期',
-                                timestamp: '200~250年',
+                                title:'古坟时代早期',
+                                content: '200~250年',
+                                timestamp: 'AD200~AD250',
                                 type: 'info',
+                                placement:'top',
                             },
                             {
-                                content: '古墳時代前期',
-                                timestamp: '250~400年',
+                                title:'古坟时代前期',
+                                content: '250~400年',
+                                timestamp: 'AD250~AD400',
                                 type: 'info',
+                                placement:'top',
                             },
                             {
-                                content: '古墳時代中期',
-                                timestamp: '400~500年',
+                                title:'古坟时代中期',
+                                content: '400~500年',
+                                timestamp: 'AD400~AD500',
                                 type: 'info',
+                                placement:'top',
                             },
                             {
-                                content: '古墳時代後期',
-                                timestamp: '500~600年',
+                                title:'古坟时代后期',
+                                content: '500~600年',
+                                timestamp: 'AD500~AD600',
                                 type: 'info',
+                                placement:'top',
                             }
                         ]
                     };
