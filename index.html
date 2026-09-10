@@ -42,8 +42,8 @@
                                     <el-anchor-link
                                         v-for="(timeslot, index) in timeslots[activeTimeslot]"
                                         :key="index"
+                                        :title="timeslot.title"
                                         :href="timeslot.href">
-                                        <h2>{{timeslot.content}}</h2>
                                     </el-anchor-link>
                                 </el-anchor>
                             </el-affix>
@@ -144,126 +144,126 @@
                     const timeslots = ref({
                         yayoiinitial:[
                             {
+                                title: '前8世纪后半',
                                 href: '#bc8_2',
-                                content: '前8世纪后半',
                             },
                             {
+                                title: '前7世纪前半',
                                 href: '#bc7_1',
-                                content: '前7世纪前半',
                             },
                             {
+                                title: '前7世纪后半',
                                 href: '#bc7_2',
-                                content: '前7世纪后半',
                             },
                             {
+                                title: '前6世纪前半',
                                 href: '#bc6_1',
-                                content: '前6世纪前半',
                             },
                             {
+                                title: '前6世纪后半',
                                 href: '#bc6_2',
-                                content: '前6世纪后半',
                             }
                         ],
                         yayoiearly:[
                             {
+                                title: '前5世纪前半',
                                 href: '#bc5_1',
-                                content: '前5世纪前半',
                             },
                             {
+                                title: '前5世纪后半',
                                 href: '#bc5_2',
-                                content: '前5世纪后半',
                             },
                             {
+                                title: '前4世纪前半',
                                 href: '#bc4_1',
-                                content: '前4世纪前半',
                             },
                             {
+                                title: '前4世纪后半',
                                 href: '#bc4_2',
-                                content: '前4世纪后半',
                             },
                             {
+                                title: '前3世纪前半',
                                 href: '#bc3_1',
-                                content: '前3世纪前半',
                             }
                         ],
                         yayoimiddle:[
                             {
+                                title: '前3世纪后半',
                                 href: '#bc3_2',
-                                content: '前3世纪后半',
                             },
                             {
+                                title: '前2世纪前半',
                                 href: '#bc2_1',
-                                content: '前2世纪前半',
                             },
                             {
+                                title: '前2世纪后半',
                                 href: '#bc2_2',
-                                content: '前2世纪后半',
                             },
                             {
+                                title: '前1世纪前半',
                                 href: '#bc1_1',
-                                content: '前1世纪前半',
                             },
                             {
+                                title: '前1世纪后半',
                                 href: '#bc1_2',
-                                content: '前1世纪后半',
                             }
                         ],
                         yayoilate:[
                             {
+                                title: '1世纪前半',
                                 href: '#ad1_1',
-                                content: '1世纪前半',
                             },
                             {
+                                title: '1世纪后半',
                                 href: '#ad1_2',
-                                content: '1世纪后半',
                             },
                             {
+                                title: '2世纪前半',
                                 href: '#ad2_1',
-                                content: '2世纪前半',
                             },
                             {
+                                title: '2世纪后半',
                                 href: '#ad2_2',
-                                content: '2世纪后半',
                             }
                         ],
                         kofuninitial:[
                             {
+                                title: '3世纪前半',
                                 href: '#ad3_1',
-                                content: '3世纪前半',
                             },
                         ],
                         kofunearly:[
                             {
+                                title: '3世纪后半',
                                 href: '#ad3_2',
-                                content: '3世纪后半',
                             },
                             {
+                                title: '4世纪前半',
                                 href: '#ad4_1',
-                                content: '4世纪前半',
                             },
                             {
+                                title: '4世纪后半',
                                 href: '#ad4_2',
-                                content: '4世纪后半',
                             }
                         ],
                         kofunmiddle:[
                             {
+                                title: '5世纪前半',
                                 href: '#ad5_1',
-                                content: '5世纪前半',
                             },
                             {
+                                title: '5世纪后半',
                                 href: '#ad5_2',
-                                content: '5世纪后半',
                             }
                         ],
                         kofunlate:[
                             {
+                                title: '6世纪前半',
                                 href: '#ad6_1',
-                                content: '6世纪前半',
                             },
                             {
+                                title: '6世纪后半',
                                 href: '#ad6_2',
-                                content: '6世纪后半',
                             }
                         ]
                     });
