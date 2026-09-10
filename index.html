@@ -270,9 +270,9 @@
                     function handleCard(index, href) {
                         console.log(index);
                         for(timeline in timelines) {
-                            timeline.type = 'info';
+                            timeline.value.type = 'info';
                         }
-                        timelines[index].type = 'primary';
+                        timelines.value[index].type = 'primary';
                         activeTimeslot.value = href;
                     }
 
