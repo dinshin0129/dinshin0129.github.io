@@ -60,14 +60,22 @@
         </div>
         <style type="text/css">
             .yayoi {
+                height: 100%;
+            }
+            .yayoi-container {
+                height: calc(100vh - 150px);
             }
             .yayoi-header {
                 height: 150px;
             }
             .yayoi-aside {
-                width: 400px;
+                width: 300px;
+                overflow-y: auto;
+                overflow-x: hidden;
             }
             .yayoi-main {
+                overflow-y: auto;
+                overflow-x: hidden;
             }
         </style>
         <script>
