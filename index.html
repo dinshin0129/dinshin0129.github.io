@@ -39,7 +39,7 @@
                             <el-affix :offset="60">
                                 <el-anchor :offset="70" direction="horizontal">
                                     <el-anchor-link
-                                        v-for="(timeslot, index) in timeslots"
+                                        v-for="(timeslot, index) in timeslots[activeTimeslot]"
                                         :key="index"
                                         :href="timeslot.href">
                                         <h2>{{timeslot.content}}</h2>
@@ -68,99 +68,215 @@
             }
         </style>
         <script>
-            const app = Vue.createApp({
-                data() {
-                    return {
-                        title: "弥生古墳時代の日本史Loading中",
-                        timelines: [
+            const {createApp, ref, onMounted} = Vue;
+
+            const app = createApp({
+                setup() {
+                    const title = ref("弥生古墳時代の日本史Loading中");
+                    const timelines = ref([
+                        {
+                            title: '弥生时代早期',
+                            href: 'yayoiinitial',
+                            content: '前750~前500年',
+                            timestamp: 'BC750~BC500',
+                            type: 'primary',
+                            placement: 'top',
+                        },
+                        {
+                            title: '弥生时代前期',
+                            href: 'yayoiearly',
+                            content: '前500~前250年',
+                            timestamp: 'BC500~BC250',
+                            type: 'info',
+                            placement: 'top',
+                        },
+                        {
+                            title: '弥生时代中期',
+                            href: 'yayoimiddle',
+                            content: '前250~1年',
+                            timestamp: 'BC250~AD1',
+                            type: 'info',
+                            placement: 'top',
+                        },
+                        {
+                            title: '弥生时代后期',
+                            href: 'yayoilate',
+                            content: '1~200年',
+                            timestamp: 'AD1~AD200',
+                            type: 'info',
+                            placement: 'top',
+                        },
+                        {
+                            title: '古坟时代早期',
+                            href: 'kofuninitial',
+                            content: '200~250年',
+                            timestamp: 'AD200~AD250',
+                            type: 'info',
+                            placement: 'top',
+                        },
+                        {
+                            title: '古坟时代前期',
+                            href: 'kofunearly',
+                            content: '250~400年',
+                            timestamp: 'AD250~AD400',
+                            type: 'info',
+                            placement: 'top',
+                        },
+                        {
+                            title: '古坟时代中期',
+                            href: 'kofunmiddle',
+                            content: '400~500年',
+                            timestamp: 'AD400~AD500',
+                            type: 'info',
+                            placement: 'top',
+                        },
+                        {
+                            title: '古坟时代后期',
+                            href: 'kofunlate',
+                            content: '500~600年',
+                            timestamp: 'AD500~AD600',
+                            type: 'info',
+                            placement: 'top',
+                        }
+                    ]);
+                    const activeTimeslot = ref('yayoiinitial');
+                    const timeslots = ref({
+                        yayoiinitial:[
                             {
-                                title: '弥生时代早期',
-                                href: 'yayoiinitial',
-                                content: '前750~前500年',
-                                timestamp: 'BC750~BC500',
-                                type: 'primary',
-                                placement: 'top',
+                                href: '#bc8_2',
+                                content: '前8世纪后半',
                             },
                             {
-                                title: '弥生时代前期',
-                                href: 'yayoiearly',
-                                content: '前500~前250年',
-                                timestamp: 'BC500~BC250',
-                                type: 'info',
-                                placement: 'top',
+                                href: '#bc7_1',
+                                content: '前7世纪前半',
                             },
                             {
-                                title: '弥生时代中期',
-                                href: 'yayoimiddle',
-                                content: '前250~1年',
-                                timestamp: 'BC250~AD1',
-                                type: 'info',
-                                placement: 'top',
+                                href: '#bc7_2',
+                                content: '前7世纪后半',
                             },
                             {
-                                title: '弥生时代后期',
-                                href: 'yayoilate',
-                                content: '1~200年',
-                                timestamp: 'AD1~AD200',
-                                type: 'info',
-                                placement: 'top',
+                                href: '#bc6_1',
+                                content: '前6世纪前半',
                             },
                             {
-                                title: '古坟时代早期',
-                                href: 'kofuninitial',
-                                content: '200~250年',
-                                timestamp: 'AD200~AD250',
-                                type: 'info',
-                                placement: 'top',
-                            },
-                            {
-                                title: '古坟时代前期',
-                                href: 'kofunearly',
-                                content: '250~400年',
-                                timestamp: 'AD250~AD400',
-                                type: 'info',
-                                placement: 'top',
-                            },
-                            {
-                                title: '古坟时代中期',
-                                href: 'kofunmiddle',
-                                content: '400~500年',
-                                timestamp: 'AD400~AD500',
-                                type: 'info',
-                                placement: 'top',
-                            },
-                            {
-                                title: '古坟时代后期',
-                                href: 'kofunlate',
-                                content: '500~600年',
-                                timestamp: 'AD500~AD600',
-                                type: 'info',
-                                placement: 'top',
+                                href: '#bc6_2',
+                                content: '前6世纪后半',
                             }
                         ],
-                        timeslots:[
+                        yayoiearly:[
                             {
-                                href: '#yayoiinitial',
-                                content: '弥生时代早期'
+                                href: '#bc5_1',
+                                content: '前5世纪前半',
                             },
                             {
-                                href: '#yayoiearly',
-                                content: '弥生时代前期',
+                                href: '#bc5_2',
+                                content: '前5世纪后半',
                             },
                             {
-                                href: '#yayoimiddle',
-                                content: '弥生时代中期',
+                                href: '#bc4_1',
+                                content: '前4世纪前半',
                             },
                             {
-                                href: '#yayoilate',
-                                content: '弥生时代后期',
+                                href: '#bc4_2',
+                                content: '前4世纪后半',
+                            },
+                            {
+                                href: '#bc3_1',
+                                content: '前3世纪前半',
+                            }
+                        ],
+                        yayoimiddle:[
+                            {
+                                href: '#bc3_2',
+                                content: '前3世纪后半',
+                            },
+                            {
+                                href: '#bc2_1',
+                                content: '前2世纪前半',
+                            },
+                            {
+                                href: '#bc2_2',
+                                content: '前2世纪后半',
+                            },
+                            {
+                                href: '#bc1_1',
+                                content: '前1世纪前半',
+                            },
+                            {
+                                href: '#bc1_2',
+                                content: '前1世纪后半',
+                            }
+                        ],
+                        yayoilate:[
+                            {
+                                href: '#ad1_1',
+                                content: '1世纪前半',
+                            },
+                            {
+                                href: '#ad1_2',
+                                content: '1世纪后半',
+                            },
+                            {
+                                href: '#ad2_1',
+                                content: '2世纪前半',
+                            },
+                            {
+                                href: '#ad2_2',
+                                content: '2世纪后半',
+                            }
+                        ],
+                        kofuninitial:[
+                            {
+                                href: '#ad3_1',
+                                content: '3世纪前半',
                             },
                         ],
-                    };
-                },
-                methods: {
-                    handleCard(href) {
-                        console.log(href);
+                        kofunearly:[
+                            {
+                                href: '#ad3_2',
+                                content: '3世纪后半',
+                            },
+                            {
+                                href: '#ad4_1',
+                                content: '4世纪前半',
+                            },
+                            {
+                                href: '#ad4_2',
+                                content: '4世纪后半',
+                            }
+                        ],
+                        kofunmiddle:[
+                            {
+                                href: '#ad5_1',
+                                content: '5世纪前半',
+                            },
+                            {
+                                href: '#ad5_2',
+                                content: '5世纪后半',
+                            }
+                        ],
+                        kofunlate:[
+                            {
+                                href: '#ad6_1',
+                                content: '6世纪前半',
+                            },
+                            {
+                                href: '#ad6_2',
+                                content: '6世纪后半',
+                            }
+                        ]
+                    });
+                    
+                    function handleCard(href) {
+                        activeTimeslot.value = href
+                    }
+
+                    return {
+                        title,
+                        timelines,
+                        activeTimeslot,
+                        timeslots,
+                        handleCard,
                     }
                 }
             });
