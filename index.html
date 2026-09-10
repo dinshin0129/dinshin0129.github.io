@@ -12,7 +12,7 @@
     <body>
         <div id="app">
             <el-container>
-                <el-header height="150px" style="flex-shrink: 0;">
+                <el-header class="layout-header">
                     <h1>{{title}}</h1>
                 </el-header>
                 <el-container>
@@ -54,6 +54,10 @@
         <style type="text/css">
             #app {
                 overflow: hidden;
+            }
+            .layout-header {
+                height: "150px";
+                flex-shrink: 0;
             }
         </style>
         <script>
