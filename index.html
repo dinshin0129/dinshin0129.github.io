@@ -26,7 +26,7 @@
                                     :timestamp="timeline.timestamp"
                                     :placement="timeline.placement"
                                 >
-                                <el-card shadow="hover" @click="handleCard(timeline.href)">
+                                <el-card shadow="hover" @click="handleCard(index, timeline.href)">
                                     <h2>{{timeline.title}}</h2>
                                     <p>{{timeline.content}}</p>
                                 </el-card>
@@ -267,8 +267,13 @@
                         ]
                     });
                     
-                    function handleCard(href) {
-                        activeTimeslot.value = href
+                    function handleCard(index, href) {
+                        console.log(index);
+                        for(timeline in timelines) {
+                            timeline.type = 'info';
+                        }
+                        timelines[index].type = 'primary';
+                        activeTimeslot.value = href;
                     }
 
                     return {
