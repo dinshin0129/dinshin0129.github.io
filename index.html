@@ -42,8 +42,8 @@
                                     <el-anchor-link
                                         v-for="(timeslot, index) in timeslots[activeTimeslot]"
                                         :key="index"
-                                        :title="timeslot.title"
                                         :href="timeslot.href">
+                                        <h2>{{timeslot.title}}</h2>
                                     </el-anchor-link>
                                 </el-anchor>
                             </el-affix>
