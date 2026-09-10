@@ -11,7 +11,7 @@
     </head>
     <body>
         <div id="app" class="yayoi">
-            <el-container>
+            <el-container class="yayoi-layout">
                 <el-header class="yayoi-header">
                     <el-affix  :offset="60">
                         <el-menu>
@@ -21,7 +21,7 @@
                         </el-menu>
                     </el-affix>
                 </el-header>
-                <el-container>
+                <el-container class="yayoi-container">
                     <el-aside class="yayoi-aside">
                         <el-scrollbar>
                             <el-timeline>
@@ -62,11 +62,17 @@
             .yayoi {
                 height: 100%;
             }
-            .yayoi-container {
-                height: calc(100vh - 150px);
+            .yayoi-layout {
+                height: 100vh;
+                overflow: hidden;
             }
             .yayoi-header {
                 height: 150px;
+                z-index: 100;
+            }
+            .yayoi-container {
+                height: calc(100vh - 150px);
+                overflow: hidden;
             }
             .yayoi-aside {
                 width: 300px;
