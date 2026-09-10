@@ -12,7 +12,7 @@
     <body>
         <div id="app">
             <el-container>
-                <el-header height="150px">
+                <el-header height="150px" style="flex-shrink: 0;">
                     <h1>{{title}}</h1>
                 </el-header>
                 <el-container>
@@ -42,7 +42,7 @@
                                         v-for="(timeslot, index) in timeslots"
                                         :key="index"
                                         :href="timeslot.href">
-                                        <p>{{timeslot.content}}</p>
+                                        <h2>{{timeslot.content}}</h2>
                                     </el-anchor-link>
                                 </el-anchor>
                             </el-affix>
@@ -55,7 +55,7 @@
             const app = Vue.createApp({
                 data() {
                     return {
-                        title: "弥生时代Loading中",
+                        title: "弥生古墳時代の日本史Loading中",
                         timelines: [
                             {
                                 title: '弥生时代早期',
