@@ -269,7 +269,7 @@
                     
                     function handleCard(index, href) {
                         console.log(index);
-                        for(timeline in timelines.value) {
+                        for(timeline of timelines.value) {
                             timeline.type = 'info';
                         }
                         timelines.value[index].type = 'primary';
