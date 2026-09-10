@@ -16,7 +16,7 @@
                     <h1>{{title}}</h1>
                 </el-header>
                 <el-container>
-                    <el-aside width="400px">
+                    <el-aside class="yayoi-aside">
                         <el-scrollbar>
                             <el-timeline>
                                 <el-timeline-item
@@ -26,7 +26,7 @@
                                     :timestamp="timeline.timestamp"
                                     :placement="timeline.placement"
                                 >
-                                <el-card shadow="hover">
+                                <el-card shadow="hover" @click="handleCard(timeline.href)">
                                     <h2>{{timeline.title}}</h2>
                                     <p>{{timeline.content}}</p>
                                 </el-card>
@@ -34,7 +34,7 @@
                             </el-timeline>
                         </el-scrollbar>
                     </el-aside>
-                    <el-main>
+                    <el-main class="yayoi-main">
                         <el-scrollbar>
                             <el-affix :offset="60">
                                 <el-anchor :offset="70" direction="horizontal">
@@ -60,6 +60,7 @@
                 flex-shrink: 0;
             }
             .yayoi-aside {
+                width: 400px;
                 overflow: hidden;
             }
             .yayoi-main {
@@ -74,59 +75,67 @@
                         timelines: [
                             {
                                 title: '弥生时代早期',
-                                content:'前750~前500年',
+                                href: 'yayoiinitial',
+                                content: '前750~前500年',
                                 timestamp: 'BC750~BC500',
                                 type: 'primary',
-                                placement:'top',
+                                placement: 'top',
                             },
                             {
-                                title:'弥生时代前期',
+                                title: '弥生时代前期',
+                                href: 'yayoiearly',
                                 content: '前500~前250年',
                                 timestamp: 'BC500~BC250',
                                 type: 'info',
-                                placement:'top',
+                                placement: 'top',
                             },
                             {
-                                title:'弥生时代中期',
+                                title: '弥生时代中期',
+                                href: 'yayoimiddle',
                                 content: '前250~1年',
                                 timestamp: 'BC250~AD1',
                                 type: 'info',
-                                placement:'top',
+                                placement: 'top',
                             },
                             {
-                                title:'弥生时代后期',
+                                title: '弥生时代后期',
+                                href: 'yayoilate',
                                 content: '1~200年',
                                 timestamp: 'AD1~AD200',
                                 type: 'info',
-                                placement:'top',
+                                placement: 'top',
                             },
                             {
-                                title:'古坟时代早期',
+                                title: '古坟时代早期',
+                                href: 'kofuninitial',
                                 content: '200~250年',
                                 timestamp: 'AD200~AD250',
                                 type: 'info',
-                                placement:'top',
+                                placement: 'top',
                             },
                             {
-                                title:'古坟时代前期',
+                                title: '古坟时代前期',
+                                href: 'kofunearly',
                                 content: '250~400年',
                                 timestamp: 'AD250~AD400',
                                 type: 'info',
-                                placement:'top',
+                                placement: 'top',
                             },
                             {
-                                title:'古坟时代中期',
+                                title: '古坟时代中期',
+                                href: 'kofunmiddle',
                                 content: '400~500年',
                                 timestamp: 'AD400~AD500',
                                 type: 'info',
-                                placement:'top',
+                                placement: 'top',
                             },
                             {
-                                title:'古坟时代后期',
+                                title: '古坟时代后期',
+                                href: 'kofunlate',
                                 content: '500~600年',
                                 timestamp: 'AD500~AD600',
                                 type: 'info',
-                                placement:'top',
+                                placement: 'top',
                             }
                         ],
                         timeslots:[
@@ -148,6 +157,11 @@
                             },
                         ],
                     };
+                },
+                methods: {
+                    handleCard(href) {
+                        console.log(href);
+                    }
                 }
             });
             app.use(ElementPlus);
