@@ -10,7 +10,7 @@
         <title>弥生古墳時代の日本史</title>
     </head>
     <body>
-        <div id="app" class="yayoi">
+        <div id="app">
             <el-container class="yayoi-layout">
                 <el-header class="yayoi-header">
                     <el-affix  :offset="60">
@@ -59,7 +59,11 @@
             </el-container>
         </div>
         <style type="text/css">
-            .yayoi {
+            html, body {
+                height: 100%;
+                overflow: hidden;
+            }
+            #app {
                 height: 100%;
             }
             .yayoi-layout {
